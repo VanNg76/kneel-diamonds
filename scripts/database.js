@@ -31,10 +31,25 @@ const database = {
             metalId: 3,
             sizeId: 2,
             styleId: 3,
-            timestamp: 1614659931693
+            timestamp: 1614659931693,
+            typeId: 2
         }
     ],
-    orderBuilder: {}
+    orderBuilder: {},
+    types: [
+        {
+            id: 1,
+            typeName: "Ring"
+        },
+        {
+            id: 2,
+            typeName: "Earring"
+        },
+        {
+            id: 3,
+            typeName: "Necklace"
+        }
+    ]
 }
 
 export const getStyles = () => {
@@ -53,6 +68,10 @@ export const getOrders = () => {
     return database.customOrders.map(order => ({...order}))
 }
 
+export const getTypes = () => {
+    return database.types.map(type => ({...type}))
+}
+
 // Make change to orderBuilder 's property values
 export const setMetal = (id) => {
     database.orderBuilder.metalId = id
@@ -64,6 +83,10 @@ export const setSize = (id) => {
 
 export const setStyle = (id) => {
     database.orderBuilder.styleId = id
+}
+
+export const setType = (id) => {
+    database.orderBuilder.typeId = id
 }
 
 // Store customer's choices permanently into database.customOrders
